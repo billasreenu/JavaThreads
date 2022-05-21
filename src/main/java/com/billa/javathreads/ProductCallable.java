@@ -13,9 +13,10 @@ public class ProductCallable implements Callable<ExcelRecordVO> {
 
 	@Override
 	public ExcelRecordVO call() throws Exception {
-		SysOutLogger.info("[ProductCallable] (call) ");
+		SysOutLogger.info("[ProductCallable] (call) STARTED");
 		ExcelRecordVO vo = new ExcelRecordVO();
 		vo.setCell0("HelloWorld");
+		SysOutLogger.info("[ProductCallable] (call) END");
 		return vo;
 	}
 

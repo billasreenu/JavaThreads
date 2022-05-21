@@ -9,7 +9,14 @@ public class ProductRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		SysOutLogger.info("[ProductRunnable] (run) from runnable thread");
+		SysOutLogger.info("[ProductRunnable] (run) from runnable START");
+		try {
+			Thread.sleep(10_000l);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		SysOutLogger.info("[ProductRunnable] (run) from runnable END");
 	}
 
 	public static void main1(String[] args) {
@@ -24,9 +31,16 @@ public class ProductRunnable implements Runnable {
 		SysOutLogger.info("[ProductRunnable] (main) START");
 
 		ProductRunnable th = new ProductRunnable();
-		ExecutorService executor = Executors.newSingleThreadExecutor();
-		executor.execute(th);
-
+		ExecutorService executor = null;
+		try {
+			executor = Executors.newSingleThreadExecutor();
+			executor.execute(th);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (executor != null)
+				executor.shutdown();
+		}
 		SysOutLogger.info("[ProductRunnable] (main) END");
 	}
 }
