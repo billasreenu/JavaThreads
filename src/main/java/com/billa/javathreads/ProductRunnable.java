@@ -2,6 +2,7 @@ package com.billa.javathreads;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import com.billa.javathreads.util.SysOutLogger;
 
@@ -11,7 +12,7 @@ public class ProductRunnable implements Runnable {
 	public void run() {
 		SysOutLogger.info("[ProductRunnable] (run) from runnable START");
 		try {
-			Thread.sleep(10_000l);
+			TimeUnit.SECONDS.sleep(10);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

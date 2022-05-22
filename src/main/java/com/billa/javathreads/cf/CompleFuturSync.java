@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.billa.javathreads.util.SysOutLogger;
 
-public class ProductCompletableFuture {
+public class CompleFuturSync {
 
 	public static void main(String[] args) {
 		SysOutLogger.info("[ProductCompletableFuture] (main) START");
